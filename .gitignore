@@ -1,0 +1,9 @@
+.idea/
+*/*.iml
+
+# emacs
+*~
+
+# python
+*.mypy_cache
+*__pycache__
