@@ -5,13 +5,13 @@ Scraper for processing a specific property's apartments
 import re
 from typing import List, Optional
 
+from
 from bs4 import Tag, BeautifulSoup
 
 from model.apartment_info import ApartmentInfo
 from model.property_info import PropertyInfo
 from scrapers.equity_apartments.class_constants import LIST_GROUP_ITEM_CLASS, UNAVAILABLE_TEXT_CLASS
 from util import pricing_util, square_footage_util
-from util.beautiful_soup_util import get_source_from_url
 from util.logging_util import Level, log_property_info
 from util.tag_constants import SPAN
 
@@ -37,7 +37,7 @@ def _get_apartment_from_unit_list_item(i: int, property_info: PropertyInfo, unit
 
 def _get_unit_list_items(property_info: PropertyInfo) -> List[Tag]:
     property_url: str = property_info.get_property_url()
-    apt_src: BeautifulSoup = get_source_from_url(property_url)
+    apt_src: BeautifulSoup = beautiful_soup_util.get_source_from_url(property_url)
     unit_list_items: List[Tag] = apt_src.find_all(class_=re.compile(LIST_GROUP_ITEM_CLASS))
     if not unit_list_items:
         log_property_info(msg_prefix="Could not find unit list items",

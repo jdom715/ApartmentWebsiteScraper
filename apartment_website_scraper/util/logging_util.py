@@ -39,18 +39,3 @@ def get_property_info_msg(msg_prefix: str, property_info: PropertyInfo) -> str:
     return "{msg_prefix} for property {property_name} at url {property_url}".format(
         msg_prefix=msg_prefix, property_name=property_info.get_property_name(),
         property_url=property_info.get_property_url())
-
-
-def log_and_exit(msg: str):
-    logging.fatal(msg)
-    sys.exit(1)
-
-
-def initialize_logger():
-    logger = logging.getLogger()
-    handler = logging.StreamHandler()
-    formatter = logging.Formatter(
-        '%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    logger.setLevel(logging.DEBUG)
